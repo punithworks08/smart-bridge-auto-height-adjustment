@@ -1,42 +1,53 @@
-# Smart Bridge — Auto Height Adjustment 🌉
+# Smart Bridge — Automatic Height Adjustment During Flood 🌉
 
-Real-time flood detection and response system that automatically raises a bridge structure when water levels rise, using Arduino, moisture sensors, and UART-based servo control.
+A mini-project (VTU BEC586) that automatically raises a bridge structure when water levels rise, using Arduino, a soil moisture sensor, and a servo motor — with a buzzer alert on detection.
 
-## 📖 Overview
+## 📖 Abstract
 
-Low-lying bridges are prone to flooding during heavy rain or rising water levels, often requiring manual intervention to prevent damage or blockage. This project automates that response — a moisture sensor continuously monitors water level near the bridge, and when a threshold is crossed, a servo motor mechanism lifts the bridge automatically, without any human involvement.
+Floods cause significant loss of life and property, especially where infrastructure lacks the technology to respond dynamically. Bridges are critical infrastructure, and bridge failure during flooding can have catastrophic consequences. This project implements a **smart bridge** that senses rising water levels in its environment and automatically reacts — lifting itself to safety and sounding a buzzer alert — without manual intervention.
+
+**Keywords:** Arduino, Servo Motor, Buzzer, Soil Moisture Sensor
 
 ## ⚙️ How It Works
 
-1. A moisture/water-level sensor placed at the base of the bridge continuously reads live data.
-2. The Arduino reads sensor values and compares them against a defined safety threshold.
-3. When water level exceeds the threshold, the Arduino sends a control signal over UART to trigger the servo motor.
-4. The servo motor lifts the bridge mechanism, keeping it clear of rising water.
-5. The bridge lowers back automatically once water recedes below the threshold.
+1. A soil moisture sensor placed near the bridge base continuously monitors water level.
+2. The Arduino Uno reads sensor values and compares them against a defined safety threshold.
+3. When water level crosses the threshold:
+   - A **buzzer** sounds to alert nearby people
+   - A **servo motor** lifts the bridge structure automatically
+4. The bridge lowers back once water recedes below the threshold.
 
 ## 🛠️ Tech Stack
 
-- **Microcontroller:** Arduino (Uno/Nano)
-- **Language:** C++ (Arduino IDE)
-- **Sensors:** Moisture / water-level sensor
+- **Microcontroller:** Arduino Uno
+- **Language:** Embedded C
+- **IDE:** Arduino IDE
+- **Sensors:** Soil moisture sensor
 - **Actuator:** Servo motor
-- **Communication:** UART
+- **Alert:** Buzzer
 
 ## 🔩 Hardware Components
 
 | Component | Purpose |
 |---|---|
-| Arduino board | Main controller running the logic |
-| Moisture sensor | Detects rising water level |
+| Arduino Uno | Main controller running the logic |
+| Soil moisture sensor | Detects rising water level |
 | Servo motor | Physically lifts/lowers the bridge |
-| Jumper wires, breadboard | Circuit connections |
-| Power supply | Powers the Arduino and servo |
+| Buzzer | Audible alert on flood detection |
+| Jumper wires, Sun board | Circuit assembly |
+| Power supply | Powers the Arduino, servo, and buzzer |
+
+## 🎯 Objectives
+
+- Design a bridge structure that automatically adjusts its height in response to rising floodwaters
+- Develop a system that autonomously detects rising water levels
+- Minimize the risk of bridge submersion or structural failure during floods
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - [Arduino IDE](https://www.arduino.cc/en/software) installed
-- Arduino board connected via USB
+- Arduino Uno connected via USB
 
 ### Setup
 ```bash
@@ -44,31 +55,37 @@ Low-lying bridges are prone to flooding during heavy rain or rising water levels
 git clone https://github.com/punithworks08/smart-bridge-auto-height-adjustment.git
 
 # Open the .ino file in Arduino IDE
-# Select your board and COM port under Tools
+# Select your board (Arduino Uno) and COM port under Tools
 # Click Upload
 ```
 
 ### Wiring
-- Moisture sensor signal pin → Arduino analog input
+- Soil moisture sensor signal pin → Arduino analog input
 - Servo motor signal pin → Arduino digital PWM pin
-- Common ground between sensor, servo, and Arduino
-
-## 📊 Results
-
-The system reliably detects rising water levels and triggers automated bridge lifting within seconds of threshold crossing, removing the need for manual monitoring or intervention.
+- Buzzer signal pin → Arduino digital output pin
+- Common ground between sensor, servo, buzzer, and Arduino
 
 ## 🔮 Future Improvements
 
-- Add a mobile/web dashboard for remote water-level monitoring
+- Add IoT connectivity to send remote flood alerts (SMS/app notification)
 - Log sensor data over time for historical flood pattern analysis
+- Replace threshold logic with a smoother, sensor-fused response
 - Add solar-powered backup for remote deployment
-- Replace threshold logic with a smoother PID-based lift response
+
+## 👥 Team
+
+This project was developed as a mini-project (BEC586) at East West Institute of Technology, Department of ECE, under the guidance of **Prof. Bhagya**.
+
+- Punith R T
+- Sagar S
+- Madhu B R
+- Rakesh C
 
 ## 📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+## 👤 Contact
 
 **Punith RT**
 [LinkedIn](https://linkedin.com/in/punithrt) · punithsan8@gmail.com
